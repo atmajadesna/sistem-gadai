@@ -32,7 +32,7 @@ Laporan - Gadai Berkah
 @endsection
 
 @section('center15')
-<div class="container" style="margin-top:100px">
+<div class="container">
 
     {{-- RINGKASAN --}}
     <div class="row g-3 mb-4">
@@ -55,8 +55,8 @@ Laporan - Gadai Berkah
     </div>
 
     {{-- TABEL NASABAH --}}
-    <div class="card shadow mb-4">
-        <div class="card-header bg-success text-white">
+    <div class="card mb-4">
+        <div class="card-header">
             <strong>Data Nasabah</strong>
         </div>
         <div class="card-body table-responsive">
@@ -92,8 +92,8 @@ Laporan - Gadai Berkah
     </div>
 
     {{-- TABEL BARANG GADAI --}}
-    <div class="card shadow mb-4">
-        <div class="card-header bg-primary text-white">
+    <div class="card mb-4">
+        <div class="card-header">
             <strong>Data Barang Gadai</strong>
         </div>
         <div class="card-body table-responsive">

@@ -36,16 +36,16 @@ Data Nasabah
 
 @section('center15')
 
-<div class="container" style="margin-top:100px">
+<div class="container">
 
-<div class="card shadow">
+<div class="card">
 
-        <div class="card-header bg-success text-white">
+        <div class="card-header">
             Form Input data diri
         </div>
 
         <div class="card-body">
-    <form method="POST" class="mb-4" action="{{url('save_data')}}"enctype="multipart/form-data">>
+    <form method="POST" class="mb-4" action="{{url('save_data')}}" enctype="multipart/form-data">
     
         @csrf
         @if ($errors->any())
@@ -106,6 +106,7 @@ Data Nasabah
 
     <h2>Data Nasabah</h2>
 
+    <div class="table-responsive">
     <table class="table table-bordered mt-3">
 
         <tr class="table-success">
@@ -150,6 +151,7 @@ Data Nasabah
 @endforeach
 
     </table>
+    </div>
 
 </div>
 </div>

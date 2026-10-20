@@ -12,11 +12,11 @@ Login - Gadai Berkah
 
 @section('center15')
 
-<div class="container d-flex justify-content-center" style="margin-top:100px">
+<div class="container d-flex justify-content-center">
 
-    <div class="card shadow" style="max-width:420px; width:100%;">
+    <div class="card" style="max-width:420px; width:100%;">
 
-        <div class="card-header bg-success text-white text-center">
+        <div class="card-header text-center">
             Login Sistem Gadai Berkah
         </div>
 

@@ -32,9 +32,9 @@ Edit Data Nasabah
 @endsection
 
 @section('center15')
-<div class="container" style="margin-top:100px">
-    <div class="card shadow">
-        <div class="card-header bg-success text-white">
+<div class="container">
+    <div class="card">
+        <div class="card-header">
             Form Edit Data Nasabah
         </div>
 

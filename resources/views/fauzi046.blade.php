@@ -36,17 +36,17 @@ Input Gadai
 
 @section('center15')
 
-<div class="container" style="margin-top:100px">
+<div class="container">
 
-    <div class="card shadow">
+    <div class="card">
 
-        <div class="card-header bg-success text-white">
+        <div class="card-header">
             Form Input Gadai
         </div>
 
         <div class="card-body">
 
-            <form method="POST" action="{{url('simpan_data')}}"enctype="multipart/form-data">
+            <form method="POST" action="{{url('simpan_data')}}" enctype="multipart/form-data">
 
                 @csrf
                 @if ($errors->any())
@@ -104,6 +104,10 @@ Input Gadai
                 </button>
 
             </form>
+
+            <h2>Data Barang Gadai</h2>
+
+            <div class="table-responsive">
             <table class="table table-bordered mt-3">
 
         <tr class="table-success">
@@ -127,7 +131,7 @@ Input Gadai
     <td>{{ $n->kondisi_fisik046 }}</td>
     <td>
             @if($n->foto046)
-                <img src="{{ asset('storage/genap046/'.$n->foto046) }}"
+                <img src="{{ asset('storage/foto_barang/'.$n->foto046) }}"
                      width="60" height="60"
                      style="object-fit:cover; border-radius:5px;">
             @else
@@ -149,6 +153,7 @@ Input Gadai
 @endforeach
 
     </table>
+    </div>
 
         </div>
 

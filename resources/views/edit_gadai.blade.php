@@ -36,11 +36,11 @@ Edit Data Gadai
 
 @section('center15')
 
-<div class="container" style="margin-top:100px">
+<div class="container">
 
-<div class="card shadow">
+<div class="card">
 
-    <div class="card-header bg-warning text-white">
+    <div class="card-header">
         Form Edit Data Gadai
     </div>
 
@@ -56,7 +56,7 @@ Edit Data Gadai
         </div>
         @endif
 
-        <form method="POST" action="{{ url('update_gadai/'.$data->id_barang046) }}"enctype="multipart/form-data">
+        <form method="POST" action="{{ url('update_gadai/'.$data->id_barang046) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 

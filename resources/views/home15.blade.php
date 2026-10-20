@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('head15')</title>
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}?v={{ filemtime(public_path('css/style.css')) }}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark shadow-sm">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light app-navbar">
         @yield('header15')
     </nav>
 
-    @yield('center15')
+    <main class="page-main">
+        @yield('center15')
+    </main>
 
-    <footer class="fixed-bottom text-center">
+    <footer class="app-footer text-center">
         @yield('footer15')
     </footer>
 

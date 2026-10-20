@@ -26,75 +26,6 @@ Dashboard - Gadai Berkah
 @endsection
 
 @section('center15')
-<style>
-    .hero-section {
-        background: var(--gb-green);
-        color: #fff;
-        padding: 40px 32px;
-        border-radius: 14px;
-        margin-bottom: 24px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-    }
-    .hero-section h1 {
-        font-size: 1.6rem;
-        font-weight: 700;
-        margin-bottom: 6px;
-    }
-    .hero-section p {
-        font-size: 0.9rem;
-        opacity: 0.8;
-        margin: 0;
-    }
-    .hero-icon {
-        font-size: 3.5rem;
-        opacity: 0.6;
-        flex-shrink: 0;
-    }
-
-    .menu-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
-        margin-top: 24px;
-    }
-    .menu-card {
-        background: #fff;
-        border: 1px solid var(--gb-border);
-        border-radius: 10px;
-        padding: 20px 16px;
-        text-align: center;
-        text-decoration: none;
-        color: var(--gb-text);
-        transition: border-color 0.15s, box-shadow 0.15s;
-        position: relative;
-    }
-    .menu-card:hover {
-        border-color: var(--gb-green);
-        box-shadow: 0 2px 10px rgba(26,107,58,0.1);
-        color: var(--gb-green);
-    }
-    .menu-card .menu-icon {
-        font-size: 1.6rem;
-        margin-bottom: 8px;
-    }
-    .menu-card .menu-label {
-        font-size: 0.85rem;
-        font-weight: 600;
-    }
-    .menu-card .menu-lock {
-        font-size: 0.68rem;
-        color: #9aa0a6;
-        margin-top: 4px;
-    }
-
-    @media(max-width:576px) {
-        .menu-grid { grid-template-columns: 1fr; }
-        .hero-icon { display: none; }
-    }
-</style>
 
 <div class="dashboard-wrap">
 
@@ -128,7 +59,7 @@ Dashboard - Gadai Berkah
     </div>
 
     {{-- Menu Cepat --}}
-    <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--gb-muted);margin:24px 0 10px;">
+    <p class="section-label">
         Menu
     </p>
     <div class="menu-grid">
