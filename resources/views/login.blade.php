@@ -42,12 +42,13 @@ Login - Gadai Berkah
                 @csrf
 
                 <div class="mb-3">
-                    <label>NIM (Username)</label>
+                    <label>Username</label>
                     <input type="text"
                            class="form-control"
                            name="nim"
                            value="{{ old('nim') }}"
-                           placeholder="Masukkan NIM">
+                           placeholder="Masukkan username"
+                           autocomplete="username">
                 </div>
 
                 <div class="mb-3">
@@ -55,7 +56,8 @@ Login - Gadai Berkah
                     <input type="password"
                            class="form-control"
                            name="password"
-                           placeholder="Masukkan Password">
+                           placeholder="Masukkan password"
+                           autocomplete="current-password">
                 </div>
 
                 <button type="submit" class="btn btn-success w-100">

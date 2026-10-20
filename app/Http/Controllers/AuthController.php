@@ -22,7 +22,7 @@ class AuthController extends Controller
             'nim'      => 'required',
             'password' => 'required',
         ], [
-            'nim.required'      => 'NIM wajib diisi',
+            'nim.required'      => 'Username wajib diisi',
             'password.required' => 'Password wajib diisi',
         ]);
 
@@ -38,7 +38,7 @@ class AuthController extends Controller
         if (!$user) {
             return redirect()
                 ->back()
-                ->withErrors(['nim' => 'NIM tidak terdaftar'])
+                ->withErrors(['nim' => 'Username tidak terdaftar'])
                 ->withInput();
         }
 
