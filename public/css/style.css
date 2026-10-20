@@ -1,0 +1,112 @@
+:root {
+            --gb-green: #1a6b3a;
+            --gb-green-light: #e8f5ee;
+            --gb-text: #1e2a23;
+            --gb-muted: #6b7c72;
+            --gb-border: #d0e4d8;
+        }
+
+        body {
+            background-color: #f5f7f6;
+            color: var(--gb-text);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            padding-top: 64px;
+            padding-bottom: 64px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--gb-green) !important;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            height: 64px;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.3px;
+            color: #fff !important;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.4rem 0.85rem !important;
+            border-radius: 6px;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff !important;
+            background-color: rgba(255,255,255,0.12);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gb-green) !important;
+            color: rgba(255,255,255,0.75);
+            font-size: 0.8rem;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .dashboard-wrap {
+        max-width: 760px;
+        margin: 40px auto;
+        padding: 0 16px;
+    }
+
+    .dashboard-header {
+        margin-bottom: 28px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gb-text);
+        margin-bottom: 4px;
+    }
+
+    .dashboard-header p {
+        color: var(--gb-muted);
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    .stat-card {
+        background: #fff;
+        border: 1px solid var(--gb-border);
+        border-radius: 10px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .stat-card .label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gb-muted);
+    }
+
+    .stat-card .value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gb-green);
+        line-height: 1;
+    }
+
+    .stat-card .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 6px;
+    }
