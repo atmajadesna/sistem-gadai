@@ -105,6 +105,9 @@ Beberapa hal diperbaiki supaya project bisa jalan di lingkungan baru:
 - Menambahkan Bootstrap JS yang sebelumnya tidak di-include, sehingga tombol menu di layar kecil tidak berfungsi
 - Menyeragamkan nama variabel `$totalGadai` antara controller dan view
 - Menghapus controller kosong yang tidak terpakai
+- Memperbaiki path foto barang — view memanggil folder `genap046`, padahal file disimpan di `foto_barang`, sehingga foto yang diunggah tidak pernah tampil
+- Membersihkan markup rusak (`>>` ganda pada tag form, atribut `enctype` yang menempel tanpa spasi)
+- Menata ulang tampilan: navbar terang, kartu dan tabel yang konsisten, form yang lebih nyaman, serta tabel yang bisa digeser di layar kecil
 
 ## Lisensi
 
