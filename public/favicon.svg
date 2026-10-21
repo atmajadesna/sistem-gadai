@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
   <rect width="40" height="40" rx="11" fill="#1f643e"/>
-  <text x="19.6" y="20.6" text-anchor="middle" dominant-baseline="central"
-        font-family="Georgia, 'Times New Roman', serif" font-size="20"
-        letter-spacing="-0.5" fill="#f7faf8">GB</text>
+  <rect x="5.2" y="12.4" width="29.6" height="15.2" rx="3" fill="#f7faf8"/>
+  <circle cx="12.8" cy="20" r="4" fill="#1f643e"/>
+  <rect x="19.8" y="16.4" width="10.6" height="2.2" rx="1.1" fill="#1f643e"/>
 </svg>

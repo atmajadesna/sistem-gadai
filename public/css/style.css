@@ -146,13 +146,6 @@ img {
     fill: var(--color-accent);
 }
 
-.mark__gb {
-    fill: var(--color-paper-2);
-    font-family: var(--font-display);
-    font-size: 17px;
-    letter-spacing: -0.4px;
-}
-
 .mark__note {
     fill: var(--color-paper-2);
 }
@@ -161,9 +154,12 @@ img {
     fill: var(--color-accent);
 }
 
-.mark__dash {
+.mark__line {
     fill: var(--color-accent);
-    opacity: 0.55;
+}
+
+.mark__line--soft {
+    opacity: 0.5;
 }
 
 .mark--lg {
