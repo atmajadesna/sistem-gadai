@@ -1,67 +1,40 @@
 @extends('home15')
 
 @section('head15')
-Laporan - Gadai Berkah
-@endsection
-
-@section('header15')
-<div class="container">
-    <a class="navbar-brand" href="/">Gadai Berkah</a>
-
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto gap-1">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Beranda</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/nasabah">Data Nasabah</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/gadai">Input Gadai</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/laporan">Laporan</a>
-            </li>
-        </ul>
-    </div>
-</div>
+Laporan
 @endsection
 
 @section('center15')
-<div class="container">
 
-    {{-- RINGKASAN --}}
-    <div class="row g-3 mb-4">
-        <div class="col-md-6">
-            <div class="stat-card">
-                <div class="label">
-                    <span class="dot" style="background:#1a6b3a"></span>Total Nasabah
-                </div>
-                <div class="value">{{ $totalNasabah }}</div>
-            </div>
+<div class="page-head">
+    <div>
+        <h1>Laporan</h1>
+        <p>Rekap seluruh nasabah dan barang gadai yang tercatat di sistem.</p>
+    </div>
+</div>
+
+<div class="stack">
+
+    <div class="ledger">
+        <div class="ledger__cell">
+            <div class="ledger__label">Nasabah terdaftar</div>
+            <div class="ledger__value">{{ $totalNasabah }}</div>
         </div>
-        <div class="col-md-6">
-            <div class="stat-card">
-                <div class="label">
-                    <span class="dot" style="background:#2563eb"></span>Total Barang Gadai
-                </div>
-                <div class="value" style="color:#2563eb">{{ $totalBarang }}</div>
-            </div>
+        <div class="ledger__cell">
+            <div class="ledger__label">Barang gadai tercatat</div>
+            <div class="ledger__value ledger__value--accent">{{ $totalBarang }}</div>
         </div>
     </div>
 
-    {{-- TABEL NASABAH --}}
-    <div class="card mb-4">
-        <div class="card-header">
-            <strong>Data Nasabah</strong>
+    <section class="panel">
+        <div class="panel__head">
+            <h2 class="panel__title">Data nasabah</h2>
+            <span class="panel__meta">{{ $nasabah->count() }} baris</span>
         </div>
-        <div class="card-body table-responsive">
-            <table class="table table-bordered table-hover">
-                <thead class="table-success">
+
+        <div class="table-wrap">
+            <table class="data">
+                <thead>
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
@@ -73,64 +46,62 @@ Laporan - Gadai Berkah
                 </thead>
                 <tbody>
                     @forelse($nasabah as $n)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $n->nama060 }}</td>
-                        <td>{{ $n->nomorhp060 }}</td>
-                        <td>{{ $n->nomornik060 }}</td>
-                        <td>{{ $n->alamat060 }}</td>
-                        <td>{{ $n->pekerjaan060 }}</td>
-                    </tr>
+                        <tr>
+                            <td class="num">{{ $loop->iteration }}</td>
+                            <td>{{ $n->nama060 }}</td>
+                            <td class="num">{{ $n->nomorhp060 }}</td>
+                            <td class="num">{{ $n->nomornik060 }}</td>
+                            <td class="wrap">{{ $n->alamat060 }}</td>
+                            <td class="wrap">{{ $n->pekerjaan060 }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td colspan="6" class="text-center text-muted">Belum ada data nasabah</td>
-                    </tr>
+                        <tr>
+                            <td colspan="6" class="empty">Belum ada data nasabah.</td>
+                        </tr>
                     @endforelse
                 </tbody>
             </table>
         </div>
-    </div>
+    </section>
 
-    {{-- TABEL BARANG GADAI --}}
-    <div class="card mb-4">
-        <div class="card-header">
-            <strong>Data Barang Gadai</strong>
+    <section class="panel">
+        <div class="panel__head">
+            <h2 class="panel__title">Data barang gadai</h2>
+            <span class="panel__meta">{{ $barang->count() }} baris</span>
         </div>
-        <div class="card-body table-responsive">
-            <table class="table table-bordered table-hover">
-                <thead class="table-primary">
+
+        <div class="table-wrap">
+            <table class="data">
+                <thead>
                     <tr>
                         <th>No</th>
-                        <th>Jenis Barang</th>
+                        <th>Jenis barang</th>
                         <th>Merk</th>
                         <th>Warna</th>
-                        <th>Nomor Seri</th>
-                        <th>Kondisi Fisik</th>
+                        <th>Nomor seri</th>
+                        <th>Kondisi fisik</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($barang as $b)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $b->jenis_barang046 }}</td>
-                        <td>{{ $b->merk046 }}</td>
-                        <td>{{ $b->warna046 }}</td>
-                        <td>{{ $b->nomor_seri046 }}</td>
-                        <td>{{ $b->kondisi_fisik046 }}</td>
-                    </tr>
+                        <tr>
+                            <td class="num">{{ $loop->iteration }}</td>
+                            <td>{{ $b->jenis_barang046 }}</td>
+                            <td>{{ $b->merk046 }}</td>
+                            <td>{{ $b->warna046 }}</td>
+                            <td class="num">{{ $b->nomor_seri046 }}</td>
+                            <td class="wrap">{{ $b->kondisi_fisik046 }}</td>
+                        </tr>
                     @empty
-                    <tr>
-                        <td colspan="6" class="text-center text-muted">Belum ada data barang</td>
-                    </tr>
+                        <tr>
+                            <td colspan="6" class="empty">Belum ada data barang.</td>
+                        </tr>
                     @endforelse
                 </tbody>
             </table>
         </div>
-    </div>
+    </section>
 
 </div>
-@endsection
 
-@section('footer15')
-Kelompok 15 &copy; {{ date('Y') }}
 @endsection

@@ -1,78 +1,68 @@
 @extends('home15')
 
 @section('head15')
-Login - Gadai Berkah
-@endsection
-
-@section('header15')
-<div class="container">
-    <a class="navbar-brand" href="/">Gadai Berkah</a>
-</div>
+Masuk
 @endsection
 
 @section('center15')
 
-<div class="container d-flex justify-content-center">
+<div class="auth">
+    <div class="auth__head">
+        <h1>Masuk</h1>
+        <p>Masuk dengan akun yang sudah terdaftar di sistem.</p>
+    </div>
 
-    <div class="card" style="max-width:420px; width:100%;">
-
-        <div class="card-header text-center">
-            Login Sistem Gadai Berkah
-        </div>
-
-        <div class="card-body">
+    <div class="panel">
+        <div class="panel__body">
 
             @if ($errors->any())
-            <div style="color:red; margin-bottom:20px;">
-                <ul class="mb-0">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+                <div class="notice">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             @endif
 
             @if(session('success'))
-            <div style="color:green; margin-bottom:20px;">
-                {{ session('success') }}
-            </div>
+                <div class="notice notice--ok">{{ session('success') }}</div>
             @endif
 
             <form method="POST" action="{{ url('login') }}">
                 @csrf
 
-                <div class="mb-3">
-                    <label>Username</label>
+                <div class="field">
+                    <label for="nim">Username</label>
                     <input type="text"
-                           class="form-control"
+                           id="nim"
                            name="nim"
                            value="{{ old('nim') }}"
                            placeholder="Masukkan username"
-                           autocomplete="username">
+                           autocomplete="username"
+                           required
+                           autofocus>
                 </div>
 
-                <div class="mb-3">
-                    <label>Password</label>
+                <div class="field">
+                    <label for="password">Password</label>
                     <input type="password"
-                           class="form-control"
+                           id="password"
                            name="password"
                            placeholder="Masukkan password"
-                           autocomplete="current-password">
+                           autocomplete="current-password"
+                           required>
                 </div>
 
-                <button type="submit" class="btn btn-success w-100">
-                    Login
+                <button type="submit" class="btn btn--primary btn--block">
+                    Masuk
                 </button>
-
             </form>
 
         </div>
     </div>
 
+    <p class="auth__hint">Akun demo — <code>admin</code> / <code>admin123</code> atau <code>petugas</code> / <code>petugas123</code></p>
 </div>
 
-@endsection
-
-@section('footer15')
-Kelompok 15 &copy; {{ date('Y') }}
 @endsection

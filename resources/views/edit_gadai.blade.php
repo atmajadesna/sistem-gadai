@@ -4,126 +4,87 @@
 Edit Data Gadai
 @endsection
 
-@section('header15')
-
-<div class="container">
-    <a class="navbar-brand" href="/">Gadai Berkah</a>
-
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto gap-1">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Beranda</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/nasabah">Data Nasabah</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/gadai">Input Gadai</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/laporan">Laporan</a>
-            </li>
-        </ul>
-    </div>
-</div>
-
-@endsection
-
-
 @section('center15')
 
-<div class="container">
+<div class="page-head">
+    <div>
+        <h1>Ubah data gadai</h1>
+        <p>Perbarui keterangan barang. Kosongkan kolom foto bila tidak ingin menggantinya.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="{{ url('gadai') }}">Kembali</a>
+</div>
 
-<div class="card">
-
-    <div class="card-header">
-        Form Edit Data Gadai
+<section class="panel">
+    <div class="panel__head">
+        <h2 class="panel__title">{{ $data->merk046 }}</h2>
+        <span class="panel__meta">ID {{ $data->id_barang046 }}</span>
     </div>
 
-    <div class="card-body">
+    <div class="panel__body">
 
         @if ($errors->any())
-        <div style="color:red; margin-bottom:20px;">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+            <div class="notice">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
 
         <form method="POST" action="{{ url('update_gadai/'.$data->id_barang046) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
-            <div class="mb-3">
-                <label>Jenis Barang</label>
-                <input type="text"
-                       class="form-control"
-                       name="jenisBarang046"
-                       value="{{ old('jenisBarang046', $data->jenis_barang046) }}">
+            <div class="form-grid">
+                <div class="field">
+                    <label for="jenisBarang046">Jenis barang</label>
+                    <input type="text" id="jenisBarang046" name="jenisBarang046" value="{{ old('jenisBarang046', $data->jenis_barang046) }}">
+                </div>
+
+                <div class="field">
+                    <label for="merk046">Merk</label>
+                    <input type="text" id="merk046" name="merk046" value="{{ old('merk046', $data->merk046) }}">
+                </div>
+
+                <div class="field">
+                    <label for="warna046">Warna</label>
+                    <input type="text" id="warna046" name="warna046" value="{{ old('warna046', $data->warna046) }}">
+                </div>
+
+                <div class="field">
+                    <label for="nomorSeri046">Nomor seri</label>
+                    <input type="text" id="nomorSeri046" name="nomorSeri046" value="{{ old('nomorSeri046', $data->nomor_seri046) }}">
+                </div>
+
+                <div class="field field--wide">
+                    <label for="kondisiFisik046">Kondisi fisik</label>
+                    <input type="text" id="kondisiFisik046" name="kondisiFisik046" value="{{ old('kondisiFisik046', $data->kondisi_fisik046) }}">
+                </div>
+
+                <div class="field field--wide">
+                    <label>Foto saat ini</label>
+                    @if($data->foto046)
+                        <img class="thumb" src="{{ asset('storage/foto_barang/'.$data->foto046) }}" alt="Foto {{ $data->merk046 }}" width="88" height="88">
+                    @else
+                        <span class="photo-empty">Belum ada foto</span>
+                    @endif
+                </div>
+
+                <div class="field field--wide">
+                    <label for="foto046">Ganti foto</label>
+                    <input type="file" id="foto046" name="foto046" accept="image/*">
+                    <span class="field__hint">Kosongkan bila foto tidak diubah.</span>
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label>Merk</label>
-                <input type="text"
-                       class="form-control"
-                       name="merk046"
-                       value="{{ old('merk046', $data->merk046) }}">
+            <div class="form-actions">
+                <button type="submit" class="btn btn--primary">Simpan perubahan</button>
+                <a href="{{ url('gadai') }}" class="btn btn--ghost">Batal</a>
             </div>
-
-            <div class="mb-3">
-                <label>Warna</label>
-                <input type="text"
-                       class="form-control"
-                       name="warna046"
-                       value="{{ old('warna046', $data->warna046) }}">
-            </div>
-
-            <div class="mb-3">
-                <label>Nomor Seri</label>
-                <input type="text"
-                       class="form-control"
-                       name="nomorSeri046"
-                       value="{{ old('nomorSeri046', $data->nomor_seri046) }}">
-            </div>
-
-            <div class="mb-3">
-                <label>Kondisi Fisik</label>
-                <input type="text"
-                       class="form-control"
-                       name="kondisiFisik046"
-                       value="{{ old('kondisiFisik046', $data->kondisi_fisik046) }}">
-            </div>
-            <div class="mb-3">
-        <label>Foto Saat Ini</label><br>
-        @if($data->foto046)
-            <img src="{{ asset('storage/genap046/'.$data->foto046) }}"
-                 width="100" style="border-radius:5px; margin-bottom:10px;"><br>
-        @else
-            <span>Belum ada foto</span><br>
-        @endif
-
-        <label>Ganti Foto (kosongkan jika tidak ingin mengubah)</label>
-        <input type="file" class="form-control" name="foto046" accept="image/*">
-    </div>
-
-            <button type="submit" class="btn btn-warning">Update</button>
-            <a href="{{ url('/gadai') }}" class="btn btn-secondary">Batal</a>
-
         </form>
 
     </div>
-</div>
-</div>
+</section>
 
-@endsection
-
-
-@section('footer15')
-Kelompok 15 © {{ date('Y') }}
 @endsection

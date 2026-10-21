@@ -20,8 +20,21 @@ Project ini awalnya tugas mata kuliah pemrograman web, kemudian dirapikan supaya
 | Framework | Laravel 12 |
 | Bahasa | PHP 8.2+ |
 | Database | SQLite (default) / MySQL |
-| Tampilan | Blade + Bootstrap 5 |
+| Tampilan | Blade + CSS sendiri (tanpa framework CSS) |
+| Tipografi | Instrument Serif, IBM Plex Sans, IBM Plex Mono (Google Fonts) |
 | Autentikasi | Session + Hash bawaan Laravel |
+
+## Tampilan
+
+CSS ditulis dari nol di `public/css/`, tanpa Bootstrap. Token warna, ukuran huruf,
+jarak, dan radius terkumpul di `tokens.css`; komponennya di `style.css`.
+
+- Palet: kertas putih kehijauan dengan satu aksen hijau tua, tanpa gradien
+- Tipografi: serif untuk judul dan angka besar, sans untuk isi, mono untuk angka tabel
+- Tabel memakai `font-variant-numeric: tabular-nums` supaya kolom angka rata
+- Tanpa JavaScript: navigasi memakai CSS grid/flex, bukan tombol hamburger
+- Semua tombol dan input punya state hover, fokus, dan aktif; fokus keyboard selalu terlihat
+- Diuji pada lebar 320, 375, 768, dan 1200 px tanpa scroll horizontal
 
 ## Cara Menjalankan
 
@@ -102,7 +115,7 @@ Beberapa hal diperbaiki supaya project bisa jalan di lingkungan baru:
 - Mengganti nama file `newskelompok15.php` menjadi `Newskelompok15.php` agar sesuai PSR-4 (Linux membedakan huruf besar-kecil, Windows tidak)
 - Memperbaiki urutan argumen `Validator::make()` pada `Barang046Controller` — pesan validasi sebelumnya tidak pernah tampil
 - Menghapus route `/fauzi046` yang memanggil method `pusatbantuan` yang tidak ada (menyebabkan error 500)
-- Menambahkan Bootstrap JS yang sebelumnya tidak di-include, sehingga tombol menu di layar kecil tidak berfungsi
+- Mengganti seluruh lapisan tampilan: CSS lama (berbasis Bootstrap) diganti stylesheet sendiri + token warna, sehingga tidak ada lagi kelas Bootstrap yang bentrok dan halaman lebih ringan
 - Menyeragamkan nama variabel `$totalGadai` antara controller dan view
 - Menghapus controller kosong yang tidak terpakai
 - Memperbaiki path foto barang — view memanggil folder `genap046`, padahal file disimpan di `foto_barang`, sehingga foto yang diunggah tidak pernah tampil

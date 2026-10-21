@@ -4,106 +4,87 @@
 Edit Data Nasabah
 @endsection
 
-@section('header15')
-<div class="container">
-    <a class="navbar-brand" href="/">Gadai Berkah</a>
-
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto gap-1">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Beranda</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/nasabah">Data Nasabah</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/gadai">Input Gadai</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/laporan">Laporan</a>
-            </li>
-        </ul>
-    </div>
-</div>
-@endsection
-
 @section('center15')
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-            Form Edit Data Nasabah
-        </div>
 
-        <div class="card-body">
+<div class="page-head">
+    <div>
+        <h1>Ubah data nasabah</h1>
+        <p>Perbarui identitas nasabah. Kosongkan kolom foto bila tidak ingin menggantinya.</p>
+    </div>
+    <a class="btn btn--ghost btn--sm" href="{{ url('nasabah') }}">Kembali</a>
+</div>
 
-            @if ($errors->any())
-            <div style="color:red; margin-bottom:20px;">
+<section class="panel">
+    <div class="panel__head">
+        <h2 class="panel__title">{{ $nasabah->nama060 }}</h2>
+        <span class="panel__meta">ID {{ $nasabah->id_nasabah060 }}</span>
+    </div>
+
+    <div class="panel__body">
+
+        @if ($errors->any())
+            <div class="notice">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
             </div>
-            @endif
+        @endif
 
-            {{-- Menambahkan spasi antara url dan enctype --}}
-            <form method="POST" action="{{ url('update_data/'.$nasabah->id_nasabah060) }}" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
+        <form method="POST" action="{{ url('update_data/'.$nasabah->id_nasabah060) }}" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
 
-                <div class="mb-3">
-                    <label>Nama</label>
-                    <input type="text" class="form-control" name="nama060" value="{{ old('nama060', $nasabah->nama060) }}">
+            <div class="form-grid">
+                <div class="field">
+                    <label for="nama060">Nama</label>
+                    <input type="text" id="nama060" name="nama060" value="{{ old('nama060', $nasabah->nama060) }}">
                 </div>
 
-                <div class="mb-3">
-                    <label>Nomor HP</label>
-                    <input type="text" class="form-control" name="nomorHp060" value="{{ old('nomorHp060', $nasabah->nomorhp060) }}">
+                <div class="field">
+                    <label for="nomorHp060">Nomor HP</label>
+                    <input type="text" id="nomorHp060" name="nomorHp060" value="{{ old('nomorHp060', $nasabah->nomorhp060) }}" inputmode="tel">
                 </div>
 
-                <div class="mb-3">
-                    <label>Nomor NIK</label>
-                    <input type="text" class="form-control" name="nomorNik060" value="{{ old('nomorNik060', $nasabah->nomornik060) }}">
+                <div class="field">
+                    <label for="nomorNik060">Nomor NIK</label>
+                    <input type="text" id="nomorNik060" name="nomorNik060" value="{{ old('nomorNik060', $nasabah->nomornik060) }}" inputmode="numeric">
                 </div>
 
-                <div class="mb-3">
-                    <label>Alamat</label>
-                    <input type="text" class="form-control" name="alamat060" value="{{ old('alamat060', $nasabah->alamat060) }}">
+                <div class="field">
+                    <label for="pekerjaan060">Pekerjaan</label>
+                    <input type="text" id="pekerjaan060" name="pekerjaan060" value="{{ old('pekerjaan060', $nasabah->pekerjaan060) }}">
                 </div>
 
-                <div class="mb-3">
-                    <label>Pekerjaan</label>
-                    <input type="text" class="form-control" name="pekerjaan060" value="{{ old('pekerjaan060', $nasabah->pekerjaan060) }}">
+                <div class="field field--wide">
+                    <label for="alamat060">Alamat</label>
+                    <input type="text" id="alamat060" name="alamat060" value="{{ old('alamat060', $nasabah->alamat060) }}">
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Foto Saat Ini</label><br>
-                    {{-- Perbaikan: Variabel $n diganti menjadi $nasabah --}}
+                <div class="field field--wide">
+                    <label>Foto saat ini</label>
                     @if($nasabah->foto060)
-                        <img src="{{ asset('storage/genap060/'.$nasabah->foto060) }}" width="100" class="img-thumbnail mb-2"><br>
+                        <img class="thumb" src="{{ asset('storage/genap060/'.$nasabah->foto060) }}" alt="Foto {{ $nasabah->nama060 }}" width="88" height="88">
                     @else
-                        <span class="text-muted d-block mb-2">Belum ada foto</span>
+                        <span class="photo-empty">Belum ada foto</span>
                     @endif
-
-                    <label class="form-label">Ganti Foto (kosongkan jika tidak ingin mengubah)</label>
-                    {{-- Perbaikan: name disesuaikan menjadi foto060 --}}
-                    <input type="file" class="form-control" name="foto060" accept="image/*">
                 </div>
 
-                <button type="submit" class="btn btn-warning">Update</button>
-                <a href="{{ url('nasabah') }}" class="btn btn-secondary">Batal</a>
+                <div class="field field--wide">
+                    <label for="foto060">Ganti foto</label>
+                    <input type="file" id="foto060" name="foto060" accept="image/*">
+                    <span class="field__hint">Kosongkan bila foto tidak diubah.</span>
+                </div>
+            </div>
 
-            </form>
+            <div class="form-actions">
+                <button type="submit" class="btn btn--primary">Simpan perubahan</button>
+                <a href="{{ url('nasabah') }}" class="btn btn--ghost">Batal</a>
+            </div>
+        </form>
 
-        </div>
     </div>
-</div>
-@endsection
+</section>
 
-@section('footer15')
-Kelompok 15 © {{ date('Y') }}
 @endsection
