@@ -130,28 +130,44 @@ img {
 .wordmark__text {
     display: inline-flex;
     align-items: baseline;
-    gap: var(--space-2);
+    gap: 10px;
     min-width: 0;
 }
 
-/* mark — tiga bola pegadaian */
+/* mark — monogram GB + lembar uang */
 .mark {
     display: block;
     flex-shrink: 0;
-    width: var(--mark-size, 28px);
-    height: var(--mark-size, 28px);
+    width: var(--mark-size, 36px);
+    height: var(--mark-size, 36px);
 }
 
 .mark__badge {
     fill: var(--color-accent);
 }
 
-.mark__ball {
+.mark__gb {
+    fill: var(--color-paper-2);
+    font-family: var(--font-display);
+    font-size: 17px;
+    letter-spacing: -0.4px;
+}
+
+.mark__note {
     fill: var(--color-paper-2);
 }
 
+.mark__coin {
+    fill: var(--color-accent);
+}
+
+.mark__dash {
+    fill: var(--color-accent);
+    opacity: 0.55;
+}
+
 .mark--lg {
-    --mark-size: 46px;
+    --mark-size: 56px;
     margin-bottom: var(--space-4);
 }
 

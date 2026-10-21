@@ -7,7 +7,7 @@
     <title>{{ $pageTitle !== '' ? $pageTitle . ' — ' : '' }}Gadai Berkah</title>
     <meta name="description" content="Sistem informasi pegadaian Gadai Berkah — pencatatan nasabah dan barang gadai.">
 
-    <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
+    <link rel="icon" href="{{ asset('favicon.svg') }}?v={{ filemtime(public_path('favicon.svg')) }}" type="image/svg+xml">
     <link rel="alternate icon" href="{{ asset('favicon.ico') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
