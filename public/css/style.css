@@ -121,10 +121,38 @@ img {
 
 .wordmark {
     display: inline-flex;
-    align-items: baseline;
-    gap: var(--space-2);
+    align-items: center;
+    gap: var(--space-3);
     color: var(--color-ink);
     min-width: 0;
+}
+
+.wordmark__text {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    min-width: 0;
+}
+
+/* mark — tiga bola pegadaian */
+.mark {
+    display: block;
+    flex-shrink: 0;
+    width: var(--mark-size, 28px);
+    height: var(--mark-size, 28px);
+}
+
+.mark__badge {
+    fill: var(--color-accent);
+}
+
+.mark__ball {
+    fill: var(--color-paper-2);
+}
+
+.mark--lg {
+    --mark-size: 46px;
+    margin-bottom: var(--space-4);
 }
 
 .wordmark__name {

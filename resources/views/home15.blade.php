@@ -7,6 +7,9 @@
     <title>{{ $pageTitle !== '' ? $pageTitle . ' — ' : '' }}Gadai Berkah</title>
     <meta name="description" content="Sistem informasi pegadaian Gadai Berkah — pencatatan nasabah dan barang gadai.">
 
+    <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
+    <link rel="alternate icon" href="{{ asset('favicon.ico') }}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif&display=swap">
@@ -18,8 +21,11 @@
     <nav class="app-navbar">
         <div class="app-navbar__inner">
             <a class="wordmark" href="{{ url('/') }}">
-                <span class="wordmark__name">Gadai Berkah</span>
-                <span class="wordmark__tag">Kelompok 15</span>
+                @include('partials.mark')
+                <span class="wordmark__text">
+                    <span class="wordmark__name">Gadai Berkah</span>
+                    <span class="wordmark__tag">Kelompok 15</span>
+                </span>
             </a>
 
             <ul class="app-nav">

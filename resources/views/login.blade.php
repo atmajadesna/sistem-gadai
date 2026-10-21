@@ -8,6 +8,7 @@ Masuk
 
 <div class="auth">
     <div class="auth__head">
+        @include('partials.mark', ['class' => 'mark--lg'])
         <h1>Masuk</h1>
         <p>Masuk dengan akun yang sudah terdaftar di sistem.</p>
     </div>
