@@ -105,6 +105,7 @@ img {
     top: 0;
     z-index: var(--z-nav);
     background: var(--color-paper-2);
+    border-top: 3px solid var(--color-accent);
     border-bottom: 1px solid var(--color-rule);
 }
 
@@ -131,6 +132,12 @@ img {
     font-size: var(--text-lg);
     letter-spacing: -0.015em;
     white-space: nowrap;
+    color: var(--color-accent-strong);
+    transition: color var(--dur-short) var(--ease-out);
+}
+
+.wordmark:hover .wordmark__name {
+    color: var(--color-accent);
 }
 
 .wordmark__tag {
@@ -239,6 +246,7 @@ img {
     background: var(--color-paper-2);
     border: 1px solid var(--color-rule);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-panel);
     overflow: hidden;
 }
 
@@ -263,12 +271,8 @@ img {
     font-family: var(--font-display);
     font-size: var(--text-display);
     line-height: 1;
-    color: var(--color-ink);
+    color: var(--color-accent-strong);
     font-variant-numeric: tabular-nums;
-}
-
-.ledger__value--accent {
-    color: var(--color-accent);
 }
 
 /* =========================================================
@@ -280,7 +284,7 @@ img {
     font-family: var(--font-body);
     font-size: var(--text-sm);
     font-weight: 600;
-    color: var(--color-muted);
+    color: var(--color-accent-strong);
     letter-spacing: 0.02em;
 }
 
@@ -288,6 +292,7 @@ img {
     background: var(--color-paper-2);
     border: 1px solid var(--color-rule);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-panel);
     overflow: hidden;
 }
 
@@ -307,7 +312,7 @@ img {
 }
 
 .menu-item:hover {
-    background: var(--color-row-hover);
+    background: var(--color-accent-soft);
 }
 
 .menu-item__label {
@@ -341,6 +346,7 @@ img {
     background: var(--color-paper-2);
     border: 1px solid var(--color-rule);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-panel);
     overflow: hidden;
 }
 
@@ -395,8 +401,8 @@ table.data {
 .data thead th {
     padding: var(--space-3);
     text-align: left;
-    background: var(--color-paper-3);
-    color: var(--color-muted);
+    background: var(--color-accent-tint);
+    color: var(--color-accent-strong);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.07em;
@@ -517,9 +523,9 @@ table.data {
 }
 
 .btn--ghost:hover {
-    border-color: var(--color-ink);
-    background: var(--color-paper-3);
-    color: var(--color-ink);
+    border-color: var(--color-accent);
+    background: var(--color-accent-soft);
+    color: var(--color-accent-strong);
 }
 
 .btn--danger {
@@ -743,7 +749,7 @@ input[type="file"]:focus-visible {
 
 .app-footer {
     flex-shrink: 0;
-    border-top: 1px solid var(--color-rule);
+    border-top: 2px solid var(--color-accent-soft);
     padding: var(--space-5) 0;
 }
 

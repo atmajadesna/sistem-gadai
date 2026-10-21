@@ -6,10 +6,10 @@
 
 :root {
     /* ---- surface ---- */
-    --color-paper: oklch(97.4% 0.005 130);
-    --color-paper-2: oklch(99.3% 0.003 130);
-    --color-paper-3: oklch(94.5% 0.007 145);
-    --color-row-hover: oklch(96.2% 0.012 150);
+    --color-paper: oklch(97.2% 0.010 150);
+    --color-paper-2: oklch(99.2% 0.006 150);
+    --color-paper-3: oklch(93.5% 0.022 152);
+    --color-row-hover: oklch(95.4% 0.026 152);
 
     /* ---- ink ---- */
     --color-ink: oklch(23% 0.018 155);
@@ -23,7 +23,8 @@
     /* ---- accent ---- */
     --color-accent: oklch(45% 0.093 155);
     --color-accent-strong: oklch(37% 0.082 155);
-    --color-accent-soft: oklch(93.5% 0.028 155);
+    --color-accent-soft: oklch(93.5% 0.030 155);
+    --color-accent-tint: oklch(95.6% 0.032 155);
     --color-on-accent: oklch(98.5% 0.005 150);
     --color-focus: oklch(45% 0.093 155 / 32%);
 
@@ -63,6 +64,7 @@
     --radius-md: 6px;
     --radius-lg: 10px;
     --container: 1040px;
+    --shadow-panel: 0 1px 2px oklch(30% 0.02 155 / 7%);
 
     /* ---- motion ---- */
     --dur-short: 120ms;
