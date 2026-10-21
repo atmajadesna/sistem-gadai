@@ -16,11 +16,11 @@ class DemoDataSeeder extends Seeder
     {
         if (nasabahmodel::count() === 0) {
             $daftarNasabah = [
-                ['Budi Santoso',      '081234567801', '3312010101900001', 'Jl. Slamet Riyadi No. 12, Surakarta', 'Karyawan Swasta'],
-                ['Siti Aminah',       '081234567802', '3312010202910002', 'Jl. Gajah Mada No. 45, Surakarta',   'Pedagang'],
-                ['Agus Prasetyo',     '081234567803', '3312010303920003', 'Jl. Adi Sucipto No. 8, Surakarta',   'Wiraswasta'],
-                ['Dewi Lestari',      '081234567804', '3312010404930004', 'Jl. Ronggowarsito No. 21, Surakarta', 'Guru'],
-                ['Rudi Hartono',      '081234567805', '3312010505940005', 'Jl. Veteran No. 33, Surakarta',      'Buruh'],
+                ['Naufal Fauzan',  '081234567801', '3312010101900001', 'Solo',     'Karyawan Swasta'],
+                ['Samudra Bayu',   '081234567802', '3312010202910002', 'Solo',     'Pedagang'],
+                ['Rendi Ardiona',  '081234567803', '3312010303920003', 'Pacitan',  'Wiraswasta'],
+                ['Ubay Aldisar',   '081234567804', '3312010404930004', 'Wonogiri', 'Guru'],
+                ['Aby Januarta',   '081234567805', '3312010505940005', 'Wonogiri', 'Buruh'],
             ];
 
             foreach ($daftarNasabah as [$nama, $hp, $nik, $alamat, $kerja]) {
